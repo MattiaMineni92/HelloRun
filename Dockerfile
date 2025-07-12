@@ -5,7 +5,8 @@ COPY ./HelloRun.API/HelloRun.API/HelloRun.API.csproj ./HelloRun.API/
 RUN dotnet restore ./HelloRun.API/HelloRun.API.csproj
 
 COPY . ./
-RUN dotnet publish ./HelloRun.API/HelloRun.API.csproj -c Release -o /app/publish
+RUN dotnet publish ./HelloRun.API/HelloRun.API.csproj -c Release -o /app/publish \
+  /p:UseAppHost=false /p:PublishSingleFile=false
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
