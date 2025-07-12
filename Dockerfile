@@ -1,16 +1,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+WORKDIR /src
 
-# Copia solo il .csproj per il restore
 COPY ./HelloRun.API/HelloRun.API/HelloRun.API.csproj ./HelloRun.API/
 RUN dotnet restore ./HelloRun.API/HelloRun.API.csproj
 
-# Copia tutto il progetto e compila
 COPY . ./
 RUN dotnet publish ./HelloRun.API/HelloRun.API.csproj -c Release -o /app/publish
 
-# Runtime
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
 
