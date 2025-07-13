@@ -43,7 +43,7 @@ class _AttivitaFormPageState extends State<AttivitaFormPage> {
       return;
     }
 
-    final url = Uri.parse('https://hello-run-api.onrender.com/api/attivita'); // modifica se serve
+    final url = Uri.parse('https://hello-run-api.onrender.com/api/Attivita'); // modifica se serve
     final response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},

@@ -21,7 +21,7 @@ class _ListaAttivitaPageState extends State<ListaAttivitaPage> {
   }
 
   Future<void> fetchAttivita() async {
-    final url = Uri.parse('https://hello-run-api.onrender.com/api/attivita'); // Modifica se serve
+    final url = Uri.parse('https://hello-run-api.onrender.com/api/Attivita'); // Modifica se serve
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
